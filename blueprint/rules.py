@@ -221,7 +221,7 @@ def _yum():
 
     # Start with a few groups that install common packages.
     s = set(['gpg-pubkey'])
-    pattern = re.compile(r'^   (\S+)')
+    pattern = re.compile(r'^   (?: |\+)?(\S+)')
     try:
         p = subprocess.Popen(['yum', 'groupinfo',
                               'core','base', 'gnome-desktop'],

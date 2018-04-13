@@ -74,7 +74,10 @@ def yum(s):
             except OSError:
                 continue
             for line in p.stdout:
-                cap = line.rstrip()[0:line.find(' ')]
+                if line.find(' ') > -1:
+                    cap = line.rstrip()[0:line.find(' ')]
+                else:
+                    cap = line.rstrip()
                 if 'rpmlib' == cap[0:6]:
                     continue
                 try:
